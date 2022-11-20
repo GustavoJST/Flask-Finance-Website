@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <main class="container py-5 text-center">
+        {% if not quote_result %}
+            <p>
+                No stock with this symbol was found.
+            </p>
+        {% else %}
+            <p>
+                A share of {{ quote_result['name'] }} ({{ quote_result['symbol'] }}) costs {{ quote_result['price'] | usd }}.
+            </p>
+        {% endif %}
+    </main>
+{% endblock %}
